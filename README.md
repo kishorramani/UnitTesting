@@ -1,6 +1,6 @@
 Unit Testing 
 
-Video 1 => https://youtu.be/9yre-M1XwVw?si=UdPQAj9NjgDGD2uD
+Video 1 => https://youtu.be/9yre-M1XwVw?si=UdPQAj9NjgDGD2uD [Android Unit Testing Tutorial | Introduction]
 => What & Why
 - Testing smallest piece of code in isolation
 - Helps in catching bugs
@@ -45,8 +45,8 @@ junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 
-Video 2: https://youtu.be/LdZdAofm7hk?si=nnNpF16odsEL0pkd
-=> Unit Test Structure 
+Video 2: https://youtu.be/LdZdAofm7hk?si=nnNpF16odsEL0pkd [Android JUnit Introduction Tutorial | Parameterized Tests Kotlin]
+=> Unit Test Structure [refer - package com.kishorramani.unittesting.utils/Helper.kt, com.kishorramani.unittesting.utils/HelperTest.kt & ParameterizedExample.kt]
 1: Arrange -> Create Objects
 2: Act -> Logic execute
 3: Assert -> Give Input and expected Output
@@ -71,3 +71,18 @@ Run HelperTest with Coverage
 
 => @Before 
 => @After 
+
+=> ParameterizedExample [refer - package com.kishorramani.unittesting.utils/ParameterizedExample.kt]
+@JvmStatic
+@Parameterized.Parameters(name = "{index} : {0} is pallindrome - {1}")
+-> Add this for parameterized method
+
+@RunWith(value = Parameterized::class)
+-> Add this for parameterized class
+
+Video 3: https://youtu.be/crd4IPEJtkI?si=DH4lWRF4pUTIgeiZ [Android Instrumentation Tests Tutorial | Assert Exceptions Kotlin]
+=> Instrumentation Tests - we need device 
+Non - UI (Similar to JUnit Tests) [context, assets manager, etc]
+UI (Espresso) [click on view, type on views]
+
+
