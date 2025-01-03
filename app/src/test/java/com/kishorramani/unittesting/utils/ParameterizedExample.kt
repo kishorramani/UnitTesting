@@ -16,7 +16,7 @@ class ParameterizedExample(private val input: String, private val expectedValue:
 
     companion object {
         @JvmStatic
-        @Parameterized.Parameters(name = "{index} : {0} is pallindrome - {1}")
+        @Parameterized.Parameters(name = "{index} : {0} is pallindrome - {1}")      //0 & 1 are index of items, to print index - write {index}
         fun data(): List<Array<Any>> {
             return listOf(
                 arrayOf("hello", false),
