@@ -138,3 +138,7 @@ Write title and description and match with another activity's text view
 
 typeText("Hello") -> To type anything in view
 Example - onView(withId(R.id.etTitle)).perform(typeText("Hello"))
+
+Video 7: https://youtu.be/hK4An_jL0Q4?si=K9RKMGE1m5msAU-m [Android Unit Test - Room Database | Testing Room DB]
+Room database testing
+

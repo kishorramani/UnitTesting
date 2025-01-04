@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -44,6 +45,36 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.gson)
 
+    //Room
+    implementation(libs.androidx.room.runtime)
+    ksp(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
+
+    //Room testing
+    testImplementation(libs.androidx.room.testing)
+    androidTestImplementation(libs.androidx.room.testing)
+
+    //Kotlin coroutines
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+
+    //Coroutine testing
+    testImplementation(libs.kotlinx.coroutines.test)
+    androidTestImplementation(libs.kotlinx.coroutines.test)
+
+    //Android Architecture component
+    testImplementation(libs.androidx.core.testing)
+
+    //Android Architecture component testing
+    androidTestImplementation(libs.androidx.core.testing)
+
+    androidTestImplementation(libs.turbine)
+
+    // Lifecycle components
+    /*implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.8.7")
+    implementation("androidx.lifecycle:lifecycle-common-java8:2.8.7")*/
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.core)
     androidTestImplementation(libs.core.ktx)
@@ -52,4 +83,6 @@ dependencies {
     androidTestImplementation(libs.androidx.runner)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.espresso.intents)
+
+
 }
