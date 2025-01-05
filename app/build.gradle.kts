@@ -70,6 +70,9 @@ dependencies {
 
     androidTestImplementation(libs.turbine)
 
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.mockito.kotlin)
+
     // Lifecycle components
     /*implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.8.7")

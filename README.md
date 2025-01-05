@@ -140,6 +140,47 @@ typeText("Hello") -> To type anything in view
 Example - onView(withId(R.id.etTitle)).perform(typeText("Hello"))
 
 Video 7: https://youtu.be/hK4An_jL0Q4?si=K9RKMGE1m5msAU-m [Android Unit Test - Room Database | Testing Room DB]
-Room database testing
+Room database testing [refer (.roomdb/QuoteDaoTest.kt) - package .roomdb]
+
+@get:Rule
+val instantTaskExecutorRule = InstantTaskExecutorRule()
+//A JUnit Test Rule that swaps the background executor used by the Architecture Components
+// with a different one which executes each task synchronously.
+
+@Before
+fun setup() {
+    //create room database setup in memory(when app close, database is close)
+    //On every test it's create new database,
+    //Our query is run on main thread - we don't want to run it on another thread, we want that it's run on only one thread
+    quoteDatabase = Room.inMemoryDatabaseBuilder(
+        ApplicationProvider.getApplicationContext(),
+        QuoteDatabase::class.java
+    ).allowMainThreadQueries().build()
+    quoteDao = quoteDatabase.quoteDao()
+}
+
+//runBlocking block the thread until every coroutine is complete
+
+//quoteDao.getQuotes() -> it's live data, we have to observe
+//.getOrAwaitValue() -> It block this until the data is comes, we don't need observer now
+val result = quoteDao.getQuotes().getOrAwaitValue()
+
+@After
+fun tearDown() {
+    quoteDatabase.close()
+}
 
 Video 8: https://youtu.be/vg0nXJqAnQA?si=rtwfhWtXSlPdGV_l [Android Mockito Example - Unit Testing Tutorial |]
+=> What is Mocking?
+=> Mockito Framework introduction
+=> Examples [refer UserServiceTest(package - .mockitotest) & QuoteManagerTest(package - .com.kishorramani.unittesting) ] 
+
+=> If one unit is depend upon 2 more objects then we create 2 fake objects and use that instead of two objects.
+
+=> Benefits of mocking
+- Deterministic output -> We create the fake objects so that we know what will be the output of that. 
+- Execution speed -> We don't have to depend upon API or Database or etc
+- Parallel development -> We don't have to wait for other stuff to write unit test of current task.
+
+@Mock - to mock the object
+MockitoAnnotations.openMocks(this) - it Initialize all the object which are annotated with @Mock

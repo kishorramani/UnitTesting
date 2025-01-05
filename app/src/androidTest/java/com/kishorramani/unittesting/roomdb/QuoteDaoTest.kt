@@ -39,7 +39,8 @@ class QuoteDaoTest {
         val quote = QuoteEntity(0, "This is a test quote", "Test")
         quoteDao.insertQuote(quote)
 
-        //quoteDao.getQuotes() -> it's live data, block this until the data is comes
+        //quoteDao.getQuotes() -> it's live data, we have to observe
+        //.getOrAwaitValue() -> It block this until the data is comes, we don't need observer now
         val result = quoteDao.getQuotes().getOrAwaitValue()
         Assert.assertEquals(1, result.size)
         Assert.assertEquals("This is a test quote", result[0].text)
