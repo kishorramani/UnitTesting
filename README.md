@@ -184,3 +184,45 @@ Video 8: https://youtu.be/vg0nXJqAnQA?si=rtwfhWtXSlPdGV_l [Android Mockito Examp
 
 @Mock - to mock the object
 MockitoAnnotations.openMocks(this) - it Initialize all the object which are annotated with @Mock
+
+Video 9: https://youtu.be/u1MaNjGFky8?si=-daGbLBhhohmTL_V [Android Testing Coroutines - Unit Testing Tutorial]
+Testing coroutine
+StandardTestDispatcher
+Example
+
+To test coroutine, we can use runBlocking.
+
+//We can use run blocking but it's not best practice
+runTest{} => To test coroutine use can use "runTest{}" [It's avoid delay] (It's comes from coroutine test library)
+
+Dispatchers.Main not work
+In testing there are not main dispatcher, so it's not work
+
+=> StandardTestDispatcher() = To test main dispatcher, use this
+//Whenever any main dispatcher come then use this standard dispatcher
+//It's run all the coroutine in single thread
+private val testMainDispatcher = StandardTestDispatcher()
+
+@Before
+fun setUp() {
+    Dispatchers.setMain(testMainDispatcher)
+}
+
+@After
+    fun tearDown() {
+    Dispatchers.resetMain()
+}
+
+=> For mainDispatcher, we have method .setMain(testMainDispatcher), but for IO dispatcher, there is not any method, so we have to use injection through constructor
+declarations -> class CoroutineTesting(val dispatcher: CoroutineDispatcher? = null) {}
+usage -> val coroutineTesting = CoroutineTesting(testMainDispatcher)
+
+=> Create rule for test generics and use that in code [refer MainCoroutineRule.kt (package - package com.kishorramani.unittesting.coroutine - test directory)]
+
+//Here we tell rule that whatever comes in scheduler, wait until it's done [refer testGetAddressDetails function in CoroutineTestingTest2WithMainCoroutineRule]
+//advanceUntilIdle - It's run every coroutine inside the scheduler first
+mainCoroutineRule.testMainDispatcher.scheduler.advanceUntilIdle()
+
+Video 10: https://youtu.be/Lh2avATK-xU?si=ukXrBisLpv6QDMls [Android Testing ViewModels - MVVM Unit Testing Tutorial]
+MVVM testing
+
