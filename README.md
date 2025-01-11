@@ -224,5 +224,24 @@ usage -> val coroutineTesting = CoroutineTesting(testMainDispatcher)
 mainCoroutineRule.testMainDispatcher.scheduler.advanceUntilIdle()
 
 Video 10: https://youtu.be/Lh2avATK-xU?si=ukXrBisLpv6QDMls [Android Testing ViewModels - MVVM Unit Testing Tutorial]
-MVVM testing
+MVVM testing -> Live data test [refer ProductViewModelTest.kt (package - com.kishorramani.unittesting.mvvm)]
+
+Set up mvvm app - product listing
+
+Viewmodel test
+Repository test
+
+To mock, we need to create folder and extension 
+To mock the final class, we need to setup mockito-extensions in resource folder. 
+
+To test live data, we need
+sut.products => This return live data [LiveData<NetworkResult<List<ProductListItem>>>]
+sut.products.getOrAwaitValue() => This return actual result [NetworkResult<List<ProductListItem>]
+
+testDispatcher.scheduler.advanceUntilIdle()     //This wait for the result of coroutine
+
+Video 11: https://youtu.be/F5cRcqeVlRU?si=85L3X9gP6ltFnuXF [Android Testing Repository - MVVM Unit Testing]
+MVVM testing -> Repository test [refer ProductViewModelTest.kt (package - com.kishorramani.unittesting.mvvm)]
+
+Here, we need to mock ProductApi
 

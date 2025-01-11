@@ -43,7 +43,6 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.gson)
 
     //Room
     implementation(libs.androidx.room.runtime)
@@ -70,10 +69,25 @@ dependencies {
 
     androidTestImplementation(libs.turbine)
 
+    //Mockito
     testImplementation(libs.mockito.core)
     testImplementation(libs.mockito.kotlin)
 
+    //ViewModel
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
+
+    implementation(libs.retrofit)
+    implementation(libs.okhttp)
+    implementation(libs.logging.interceptor)
+    implementation(libs.converter.gson)
+    implementation(libs.gson)
+
+    //glide
+    implementation(libs.glide)
+
+    //mock web server
+    testImplementation (libs.mockwebserver)
+
 
     // Lifecycle components
     /*
