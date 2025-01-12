@@ -244,4 +244,4 @@ Video 11: https://youtu.be/F5cRcqeVlRU?si=85L3X9gP6ltFnuXF [Android Testing Repo
 MVVM testing -> Repository test [refer ProductViewModelTest.kt (package - com.kishorramani.unittesting.mvvm)]
 
 Here, we need to mock ProductApi
-
+We need to write use case for productsAPI.getProducts() function API

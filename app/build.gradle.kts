@@ -34,6 +34,12 @@ android {
     buildFeatures {
         viewBinding = true
     }
+
+    sourceSets{
+        /*androidTest{
+            java.src
+        }*/
+    }
 }
 
 dependencies {
