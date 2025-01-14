@@ -35,10 +35,14 @@ android {
         viewBinding = true
     }
 
-    sourceSets{
-        /*androidTest{
-            java.src
-        }*/
+    sourceSets {
+        val sharedTestDir = "src/sharedTest/java"
+        getByName("test") {
+            java.srcDirs(sharedTestDir)
+        }
+        getByName("androidTest") {
+            java.srcDirs(sharedTestDir)
+        }
     }
 }
 

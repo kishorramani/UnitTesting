@@ -245,3 +245,15 @@ MVVM testing -> Repository test [refer ProductViewModelTest.kt (package - com.ki
 
 Here, we need to mock ProductApi
 We need to write use case for productsAPI.getProducts() function API
+
+SharedDirectory
+class Shared { }
+sourceSets {
+    val sharedTestDir = "src/sharedTest/java"
+    getByName("test") {
+        java.srcDirs(sharedTestDir)
+    }
+    getByName("androidTest") {
+        java.srcDirs(sharedTestDir)
+    }
+}
