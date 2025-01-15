@@ -257,3 +257,23 @@ sourceSets {
         java.srcDirs(sharedTestDir)
     }
 }
+
+Video 12: https://youtu.be/F5cRcqeVlRU?si=O5RiKIuNTKag1pIK [Android Unit Testing Retrofit Calls using MockWebServer]
+MockWebServer [refer - ProductAPITest.kt (package - com.kishorramani.unittesting.mockwebserver)(unit test folder)]
+
+1: What is Mock Web Server?
+2: Testing HTTP Clients
+3: Advantages
+
+Retrofit
+It's a client library which helps to consume API
+
+Here, we will create local server which mock our API server
+
+Advantages
+- Rate limiting (Might be, on server there is request limit per second)
+- Cost efficient (We will mock the server)
+- Faster Development (API is not ready, We know the request and response)
+- Testing scenarios like timeouts, 4.x.x, 5.x.x errors ()
+
+Video 13: 
