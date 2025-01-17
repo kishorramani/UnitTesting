@@ -5,6 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface QuoteDao {
@@ -20,6 +21,9 @@ interface QuoteDao {
 
     @Query("SELECT * from QuoteEntity")
     fun getQuotes(): LiveData<List<QuoteEntity>>
+
+    @Query("SELECT * from QuoteEntity")
+    fun getQuotesFlow(): Flow<List<QuoteEntity>>
 
     @Query("SELECT * from QuoteEntity where id = :quoteId")
     suspend fun getQuoteById(quoteId: Int): QuoteEntity

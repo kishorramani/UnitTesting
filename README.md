@@ -276,4 +276,24 @@ Advantages
 - Faster Development (API is not ready, We know the request and response)
 - Testing scenarios like timeouts, 4.x.x, 5.x.x errors ()
 
-Video 13: 
+Video 13: https://youtu.be/Ew_NioQy-18?si=LEnecwRXpHR45OZC [Android HILT Testing Tutorial | Unit Testing Room Example]
+
+
+
+Video 14: https://youtu.be/78BrmRmiy84?si=y-h3LAqdiX04y2Eg [Unit Testing Kotlin Flows | Turbine Library Example]
+Flow - [refer - FlowDemo.kt (package - com.kishorramani.unittesting.flowtest)(FlowDemoTest)] 
+FlowDemo
+FlowDemoTest
+
+QuoteDaoFlowTest [refer - QuoteDaoFlowTest.kt (package - com.kishorramani.unittesting.roomdb)(Room DB Testing)(android test folder)]] 
+val result = quoteDao.getQuotesFlow().toList()
+.toList() -> We observe as a list, so this flow never end, it's infinite flow
+
+To test the flow using turbine library - use test lambda
+quoteDao.getQuotesFlow().test {
+    val quoteList = awaitItem()     //whenever list changes anytime, it's store that into the quoteList
+    Assert.assertEquals(2, quoteList.size)
+    val quoteList1 = awaitItem()     //whenever list changes anytime, it's store that into the quoteList
+    Assert.assertEquals(3, quoteList1.size)
+    cancel()        //flow is cancel
+}
